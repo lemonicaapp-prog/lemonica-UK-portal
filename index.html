@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEMONADE by Lemonica — UK Master Franchise Portal</title>
+
+  <!-- OGP / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uk.lemonica-fc.com/" />
+  <meta property="og:title" content="LEMONADE by Lemonica — UK Master Franchise Portal" />
+  <meta property="og:description" content="Citronnade Naturelle — UK Master Franchisee Portal. Everything you need to launch and operate." />
+  <meta property="og:image" content="https://uk.lemonica-fc.com/ogp.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LEMONADE by Lemonica — UK Master Franchise Portal" />
+  <meta name="twitter:description" content="UK Master Franchisee Portal." />
+  <meta name="twitter:image" content="https://uk.lemonica-fc.com/ogp.jpg" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow: #F5C800;
+      --yellow-light: #FFF8D6;
+      --brown: #2D2416;
+      --brown-mid: #5C4A28;
+      --cream: #FDFAF2;
+      --white: #ffffff;
+      --gray: #8a8070;
+      --border: #E8E0CC;
+      --shadow: 0 2px 16px rgba(45,36,22,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      min-height: 100vh;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: 44px;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-user {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .btn-logout {
+      background: var(--yellow);
+      color: var(--brown);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-family: "DM Sans", sans-serif;
+      transition: background 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .btn-logout:hover { background: #e0b600; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: #fff;
+      overflow: hidden;
+      padding: 40px 32px 36px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
+
+    /* Small lemon photos - pushed to far left/right edges */
+    .hero-bg-left {
+      position: absolute;
+      top: 50%;
+      left: -60px;
+      transform: translateY(-50%);
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      opacity: 0.55;
+    }
+
+    .hero-bg-right {
+      position: absolute;
+      top: 50%;
+      right: -60px;
+      transform: translateY(-50%);
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      opacity: 0.55;
+    }
+
+    /* Fade out photos near center so logo is clear */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,1) 28%,
+        rgba(255,255,255,1) 72%,
+        rgba(255,255,255,0) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-logo {
+      display: block;
+      margin: 0 auto 10px;
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero-sub {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      margin-bottom: 5px;
+    }
+
+    .hero-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--brown);
+    }
+
+    .hero-title span {
+      font-weight: 600;
+      color: var(--brown-mid);
+    }
+
+    .hero-welcome {
+      margin-top: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brown);
+    }
+
+    /* ── MAIN ── */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* ── ABOUT BRAND ── */
+    .about-card {
+      background: var(--yellow-light);
+      border: 1px solid #E8D870;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .about-card-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .about-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+
+    .about-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--brown);
+    }
+
+    .btn-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brown);
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border: 1.5px solid var(--brown-mid);
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+
+    .btn-link:hover { background: rgba(45,36,22,0.07); }
+
+    /* ── SECTION ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .section-header p {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    /* ── RESOURCE GRID ── */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .resource-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .resource-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .resource-card .icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .resource-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.3;
+    }
+
+    .resource-card p {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.5;
+      flex: 1;
+      font-weight: 400;
+    }
+
+    .btn-download {
+      margin-top: 6px;
+      background: var(--yellow);
+      color: var(--brown);
+      border: none;
+      border-radius: 20px;
+      padding: 7px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-download:hover { background: #e0b600; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .sidebar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-card-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .update-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .update-item:last-of-type { border-bottom: none; }
+
+    .update-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--yellow-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .update-content h4 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .update-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .update-content li {
+      font-size: 12px;
+      color: var(--gray);
+      margin-bottom: 2px;
+    }
+
+    .update-content li::before {
+      content: '• ';
+      color: var(--yellow);
+      font-weight: 700;
+    }
+
+    .update-date {
+      font-size: 11px;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    .view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brown-mid);
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .view-all:hover { color: var(--brown); }
+
+    .badge-new {
+      background: var(--yellow);
+      color: var(--brown);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .milestone-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .milestone-item:last-child { border-bottom: none; }
+    .milestone-dot {
+      width: 8px; height: 8px;
+      background: var(--yellow);
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .milestone-item p { font-size: 13px; font-weight: 500; }
+    .milestone-item span { font-size: 11px; color: var(--gray); }
+
+    /* ── WHATSAPP BANNER ── */
+    .whatsapp-banner {
+      background: var(--yellow-light);
+      border: 1.5px solid #E8D870;
+      border-radius: 12px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .whatsapp-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .whatsapp-icon {
+      font-size: 28px;
+    }
+
+    .whatsapp-banner h3 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .whatsapp-banner p {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .btn-join {
+      background: var(--brown);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 22px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-join:hover { background: #4a3a1e; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    footer span { margin: 0 12px; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 520px) {
+      nav { padding: 0 16px; }
+      .hero { padding: 40px 16px 36px; }
+      .hero-logo { max-width: 260px; height: auto; }
+      .main { padding: 24px 16px 60px; }
+      .resource-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .about-card { flex-direction: column; align-items: flex-start; }
+      .whatsapp-banner { flex-direction: column; align-items: flex-start; }
+      .resource-card { padding: 14px 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="logo-icon.png" alt="LEMONADE by Lemonica" />
+    </a>
+    <div class="nav-right">
+      <button class="btn-logout" onclick="logout()">🔒 Log Out</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="hero-bg.png" alt="" class="hero-bg-left" />
+    <img src="hero-bg2.png" alt="" class="hero-bg-right" />
+    <div class="hero-content">
+    <img src="logo-full.png" alt="LEMONADE by Lemonica" class="hero-logo" />
+    <p class="hero-sub">UK Master Franchisee Portal</p>
+    <p class="hero-title">Citronnade Naturelle — <span>France & Europe</span></p>
+    <p class="hero-welcome">Welcome, Partner. Everything you need to launch and operate is here.</p>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="left-col">
+
+      <!-- About -->
+      <div class="about-card">
+        <div class="about-card-inner">
+          <img src="logo-icon.png" class="about-icon" alt="Lemonica icon" />
+          <p>A premium Japanese lemonade brand, born in 2017.<br />Now arriving in <strong>South France</strong>.</p>
+        </div>
+        <a href="https://youtube.com/shorts/OhpwukU-KXI?si=rWhNtwTGj8KT-s5x" target="_blank" rel="noopener noreferrer" class="btn-link">About the Brand →</a>
+      </div>
+
+      <!-- Resource Library -->
+      <div class="section-header">
+        <div>
+          <h2>📁 Resource Library</h2>
+          <p>Download the latest approved materials and operational documents.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+
+        <!-- Store Design Pack: 3 files -->
+        <!-- Store Design: 3 files -->
+        <div class="resource-card">
+          <div class="icon">🏗️</div>
+          <h3>Store Design — Westfield White City</h3>
+          <p>Kiosk general arrangement, sections, finishes</p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/Store%20designed%20Westfield%20White%20City.pdf" class="btn-download" download>⬇ Download</a>
+        </div>
+        <div class="resource-card">
+          <div class="icon">🏗️</div>
+          <h3>Store Design — Stratford</h3>
+          <p>Kiosk detail drawings, elevations</p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/Store%20design%20Stratford.pdf" class="btn-download" download>⬇ Download</a>
+        </div>
+        <div class="resource-card">
+          <div class="icon">🏗️</div>
+          <h3>Store Design — Baker Street</h3>
+          <p>Floor plan, elevation, material board</p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/Store%20designed%20Baker.pdf" class="btn-download" download>⬇ Download</a>
+        </div>
+
+        <!-- Kitchen Equipment -->
+        <div class="resource-card">
+          <div class="icon">🍳</div>
+          <h3>Kitchen Equipment List</h3>
+          <p>Approved equipment with model numbers &amp; suppliers</p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/Big%20equipments%20-%20Shop_equipment.pdf" class="btn-download" download>⬇ Download</a>
+        </div>
+
+        <!-- HQ Supply Catalogue: 2 files -->
+        <div class="resource-card">
+          <div class="icon">📦</div>
+          <h3>HQ Supply List</h3>
+          <p>Raw materials, packaging, consumables</p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/Supply%20List%202.pdf" class="btn-download" download>⬇ Download</a>
+        </div>
+        <div class="resource-card">
+          <div class="icon">📊</div>
+          <h3>HQ Supply Specification</h3>
+          <p>Detailed spec sheet (Excel)</p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/HQ%20Supply%20Specification%20.xlsx" class="btn-download" download>⬇ Download</a>
+        </div>
+
+        <!-- Logo & Brand Guidelines -->
+        <div class="resource-card">
+          <div class="icon">🎨</div>
+          <h3>Logo &amp; Brand Manual</h3>
+          <p>Logo usage, brand guidelines, visual identity<br><span style="font-size:0.8rem;color:#8a8070;">📦 ZIP file — extract on PC/Mac to open</span></p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/LL_LOG_lemonade_by_lemonica_manual_FR.zip" class="btn-download" download>⬇ Download</a>
+        </div>
+
+        <!-- Menu & Recipes -->
+        <div class="resource-card">
+          <div class="icon">🍋</div>
+          <h3>Menu &amp; Recipes</h3>
+          <p>Recipes and menu specifications<br><span style="font-size:0.8rem;color:#8a8070;">📊 Excel file (.xlsx)</span></p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/recipe_052026.xlsx" class="btn-download" download>⬇ Download</a>
+        </div>
+
+        <!-- Food Truck Design -->
+        <div class="resource-card">
+          <div class="icon">🚚</div>
+          <h3>Food Truck Design</h3>
+          <p>Food truck design files — Japan reference<br><span style="font-size:0.8rem;color:#8a8070;">📦 ZIP file — extract on PC/Mac to open</span></p>
+          <a href="https://raw.githubusercontent.com/lemonicaapp-prog/lemonica-FC-portal/main/files/Food_truck_JPN.zip" class="btn-download" download>⬇ Download</a>
+        </div>
+        <div class="resource-card" style="opacity:0.5;">
+          <div class="icon">🥤</div>
+          <h3>Packaging Specifications</h3>
+          <p>Cups, lids, custom options</p>
+          <a href="#" class="btn-download" style="pointer-events:none;background:#ccc;color:#888;">Coming Soon</a>
+        </div>
+        <div class="resource-card" style="opacity:0.5;">
+          <div class="icon">🎓</div>
+          <h3>LMM Training Programme</h3>
+          <p>Schedule, materials</p>
+          <a href="#" class="btn-download" style="pointer-events:none;background:#ccc;color:#888;">Coming Soon</a>
+        </div>
+        <div class="resource-card" style="opacity:0.5;">
+          <div class="icon">📋</div>
+          <h3>Operations Manuals</h3>
+          <p>SOPs, opening checklists</p>
+          <a href="#" class="btn-download" style="pointer-events:none;background:#ccc;color:#888;">Coming Soon</a>
+        </div>
+
+      </div>
+
+      <!-- WhatsApp Banner -->
+      <div class="whatsapp-banner">
+        <div class="whatsapp-banner-left">
+          <span class="whatsapp-icon">💬</span>
+          <div>
+            <h3>Questions? Reply via WhatsApp Official Group</h3>
+            <p>We're here to support you every step of the way.</p>
+          </div>
+        </div>
+        <a href="https://chat.whatsapp.com/JPj62NLX76LL21MgFLrNHb?mode=gi_t" class="btn-join" target="_blank">Join group →</a>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Latest Updates -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">
+          <h3>Latest Updates</h3>
+          <span>🔔</span>
+        </div>
+
+        <p style="color:#aaa; font-size:0.9rem; text-align:center; padding: 1rem 0;">Coming soon...</p>
+      </div>
+
+      <!-- Upcoming Milestones -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">
+          <h3>Upcoming Milestones</h3>
+          <span>📅</span>
+        </div>
+
+        <p style="color:#aaa; font-size:0.9rem; text-align:center; padding: 1rem 0;">Coming soon...</p>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>LEMONADE by Lemonica</strong>
+    <span>|</span>
+    Confidential — For Authorised Users Only
+    <span>|</span>
+    © 2026
+  </footer>
+
+  <!-- PASSWORD GATE OVERLAY -->
+  <div id="password-gate">
+    <div class="gate-box">
+      <img src="logo-icon.png" alt="LEMONADE by Lemonica" class="gate-logo" />
+      <p class="gate-title">UK Master Franchisee Portal<br>Private Access</p>
+      <label class="gate-label">PASSWORD</label>
+      <div class="gate-input-wrap">
+        <input
+          type="password"
+          id="gate-input"
+          class="gate-input"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+        />
+        <button type="button" class="gate-toggle" onclick="togglePassword()" id="toggle-btn" title="Show / Hide password">👁</button>
+      </div>
+      <button class="gate-btn" onclick="checkPassword()">Enter Portal &rarr;</button>
+      <p class="gate-error" id="gate-error"></p>
+      <p class="gate-footer">LEMONADE by Lemonica &mdash; Confidential</p>
+    </div>
+  </div>
+
+  <style>
+    /* ── PASSWORD GATE ── */
+    #password-gate {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #password-gate.hidden { display: none; }
+
+    .gate-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(45,36,22,0.10);
+      padding: 40px 36px 36px;
+      width: calc(100% - 32px);
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .gate-logo {
+      height: 72px;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .gate-logo-icon {
+      height: 52px;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .gate-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .gate-label {
+      font-size: 12px;
+      color: var(--brown-mid);
+      text-align: left;
+      display: block;
+      margin-bottom: 7px;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+    .gate-input {
+      width: 100%;
+      background: var(--cream);
+      border: 1.5px solid #c8b89a;
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--brown);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 14px;
+    }
+
+    .gate-input:focus {
+      border-color: var(--yellow);
+    }
+
+    .gate-input::placeholder {
+      color: #c8bfae;
+    }
+
+    .gate-btn {
+      width: 100%;
+      background: var(--yellow);
+      color: var(--brown);
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .gate-btn:hover { background: #e0b600; }
+    .gate-btn:active { transform: scale(0.98); }
+
+    .gate-input-wrap {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .gate-input-wrap .gate-input {
+      margin-bottom: 0;
+      padding-right: 48px;
+      width: 100%;
+    }
+
+    .gate-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      opacity: 0.5;
+      padding: 0;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+
+    .gate-toggle:hover { opacity: 1; }
+
+    .gate-error {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #d94f4f;
+      min-height: 18px;
+    }
+
+    .gate-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0 16px;
+    }
+
+    .gate-footer {
+      font-size: 11px;
+      color: #c8bfae;
+      letter-spacing: 0.05em;
+    }
+  </style>
+
+  <script>
+    const CORRECT_PASSWORD = 'Lemonicafc2026';
+    const SESSION_KEY = 'lemonica_portal_auth';
+    const TIMEOUT_MS = 5 * 60 * 1000; // 5 minutes
+    let logoutTimer;
+
+    function showGate() {
+      sessionStorage.removeItem(SESSION_KEY);
+      document.getElementById('password-gate').classList.remove('hidden');
+      document.getElementById('gate-input').value = '';
+      document.getElementById('gate-error').textContent = '';
+      clearTimeout(logoutTimer);
+    }
+
+    function logout() {
+      showGate();
+    }
+
+    function resetTimer() {
+      clearTimeout(logoutTimer);
+      logoutTimer = setTimeout(() => {
+        showGate();
+      }, TIMEOUT_MS);
+    }
+
+    function togglePassword() {
+      const input = document.getElementById('gate-input');
+      const btn = document.getElementById('toggle-btn');
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = '🙈';
+        btn.style.opacity = '1';
+      } else {
+        input.type = 'password';
+        btn.textContent = '👁';
+        btn.style.opacity = '0.5';
+      }
+    }
+
+    function checkPassword() {
+      const input = document.getElementById('gate-input').value;
+      const error = document.getElementById('gate-error');
+      if (input === CORRECT_PASSWORD) {
+        sessionStorage.setItem(SESSION_KEY, 'true');
+        document.getElementById('password-gate').classList.add('hidden');
+        error.textContent = '';
+        resetTimer();
+      } else {
+        error.textContent = 'Incorrect password. Please try again.';
+        document.getElementById('gate-input').value = '';
+        document.getElementById('gate-input').focus();
+      }
+    }
+
+    document.getElementById('gate-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkPassword();
+    });
+
+    // Reset timer on any user activity
+    ['mousemove','keydown','click','scroll','touchstart'].forEach(evt =>
+      document.addEventListener(evt, () => {
+        if (sessionStorage.getItem(SESSION_KEY) === 'true') resetTimer();
+      }, { passive: true })
+    );
+
+    if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+      document.getElementById('password-gate').classList.add('hidden');
+      resetTimer();
+    }
+  </script>
+
+</body>
+</html>
